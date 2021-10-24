@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>All Meetups</title>
+        <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+        <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>-->
+    </head>
+<body>
+    <header id="main-header">
+        <nav><a href="/meetups" id="main-logo">DjangoMeetups</a></nav>
+        <h1>We got great meetups coming up</h1>
+        <p>Find the one that best suits your needs</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for meetup_item in meetups %}
+                    <li class="meetup-item">
+                        <article>
+                            <div class="meetup-summary">
+                                <div class="meetup-image">
+                                    <img src="" alt="" srcset="">
+                                </div>
+                                <div class="meetup-details">
+                                    <h3>{{ meetup_item.title }}</h3>
+                                    <address>{{ meetup_item.location }}</address>
+                                </div>
+                            </div>
+                            <div class="meetup-actions">
+                                <a href="" class="btn">More details</a>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
+</body>
+</html>

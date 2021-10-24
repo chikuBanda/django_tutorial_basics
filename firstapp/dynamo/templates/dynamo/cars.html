@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'dynamo/css/cars.css' %}">
+    </head>
+    <body>
+        {% if condition %}
+            {% for car in cars %}
+                <div>
+                    <p>Make: {{ car.make }}</p>
+                    <p>Model: <a href="{{ car.site }}">{{ car.model }}</a></p>
+                    <p>Type: {{ car.type }}</p>
+                    <p>Price: {{ car.price }}</p>
+                </div>
+                <img src="{% static 'dynamo/images/'|add:car.image %}" alt="{{car.model}}" height="140" width="190"/>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No cars found</p>
+        {% endif %}
+    </body>
+</html>
